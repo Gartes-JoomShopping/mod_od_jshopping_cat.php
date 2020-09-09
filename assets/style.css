@@ -1,0 +1,19 @@
+#lbar ul.od{position:relative;margin:0;padding:0;}
+#lbar ul.od li{position:relative;padding:0;border-bottom:1px solid #afa;}
+#lbar ul.od li a{position:relative;display:block;padding:7px 5px;color:#030;text-decoration:none;}
+#lbar ul.od li ul li a{padding:5px 15px;}
+#lbar ul.od li a:hover{color:#fff;background:#030;}
+#lbar ul.od li ul{display:none;}
+
+#lbar ul.od li:hover ul{
+	position:absolute;top:0px;left:180px;
+	display:block;z-index:101;
+	background:#fff;
+	margin:0; padding:5px 0;
+	width:300px;
+	border:1px solid #0C4B00;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-khtml-border-radius:5px;
+}
