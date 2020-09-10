@@ -60,8 +60,14 @@ class modODJShoppingCategoryHelper{
 	 */
 	public static function getCatsArray($params, $active_id, $category)
 	{
-	    $category->load($active_id);
+
+
+        $category->load($active_id);
     	$categories_id = $category->getTreeParentCategories();
+
+
+
+    	
 	   return modODJShoppingCategoryHelper::getTreeCats($category, $params, $categories_id);
     }
 	
