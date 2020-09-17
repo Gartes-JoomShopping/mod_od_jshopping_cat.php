@@ -4,7 +4,7 @@
         <description><![CDATA[Od jshopping categories By Gartes]]></description>
         <type>module</type>
         <element>mod_od_jshopping_cat</element>
-        <version>1.1</version>
+        <version>1.2</version>
         <client>0</client>
         <infourl title="Joomla!">https://github.com/Gartes-JoomShopping/mod_myod_jshopping_cat/blob/master/README.md</infourl>
         <downloads>

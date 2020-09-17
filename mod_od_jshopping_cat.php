@@ -1,18 +1,37 @@
 <?php	 	
 defined('_JEXEC') or die('Restricted access');
 
+$__moduleName = 'mod_od_jshopping_cat';
 $start = microtime(true);
 
-$key   = md5( 'mod_od_jshopping_cat' );
-$group = 'mod_od_jshopping_cat';
+$app  = \Joomla\CMS\Factory::getApplication();
 $cache = \Joomla\CMS\Cache\Cache::getInstance(
     'output', array(
         'defaultgroup' => 'com_jce',
         'lifetime' => 9999999,
         'caching' => true
-    ));
+    )
+);
 
-$data  = $cache->get($key, $group);
+
+
+
+$partsCache = [];
+//$partsCache[] = JUri::getInstance()->toString();
+$partsCache[] = $__moduleName;
+$partsCache[] = $app->input->get('sitecountry' , 'moskva' );
+$key = md5(serialize($partsCache));
+
+
+
+
+
+
+
+
+
+
+$data  = $cache->get($key, $__moduleName);
 
 if ($data) {
     echo $data;
@@ -78,11 +97,14 @@ if ( is_array( $category_id ) ) {
 
 $html = modODJShoppingCategoryHelper::getCatsArray($params, $category_id, $category);
 ob_start();
-require JModuleHelper::getLayoutPath('mod_od_jshopping_cat', $params->get('layout', 'default'));
+
+    require JModuleHelper::getLayoutPath('mod_od_jshopping_cat', $params->get('layout', 'default'));
+
 $data = ob_get_contents();
 ob_clean();
 ob_end_clean();
-$cache->store($data, $key, $group);
+
+$cache->store($data, $key, $__moduleName);
 echo $data ;
 $delay = microtime(true) - $start;
 
@@ -90,4 +112,3 @@ $delay = microtime(true) - $start;
 return ;
 
 
-?>
